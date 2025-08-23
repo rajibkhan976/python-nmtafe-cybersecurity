@@ -1,6 +1,6 @@
-# Name: Rajib Hossain Khan
-# Student ID: 20145454
-# Version: 202009081123
+# # Name: Rajib Hossain Khan
+# # Student ID: 20145454
+# # Version: 202009081123
 
 import random
 
@@ -25,8 +25,34 @@ else:
     print("Oops, wrong")
 
 
-# def printTheLine(number):
-#     print("the dumber the reason the more it must be done\n"*number)
+def printTheLine(number):
+    print("the dumber the reason the more it must be done\n"*number)
 
 
-# printTheLine(4)
+printTheLine(4)
+
+
+def greetings():
+    print("Welcome to Arrestaurant. May I take your statement?")
+
+
+greetings()
+
+
+def compareWith10(number):
+    if number > 10:
+        print("The number is greater than 10")
+    elif number < 10:
+        print("The number is less than 10")
+    else:
+        print("The number is equal to 10")
+
+
+compareWith10(9)
+
+
+def diceGame():
+    return random.randint(1, 6)
+
+
+print(diceGame())
