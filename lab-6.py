@@ -1,3 +1,7 @@
+# Name: Rajib Hossain Khan
+# Student ID: 20145454
+# Version: 202009081123
+
 # declaring counter to control the loop
 count = 1
 # declaring list to add the valid words
