@@ -54,6 +54,63 @@
 #     f.write(movie20 + "\n")
 #     f.close()
 
-import os
-newFile = open("movie-list.txt", "r")
-os.remove("C:/Users/rajib/OneDrive/Documents/tafe-python/movie-list.txt")
+# import os
+# newFile = open("movie-list.txt", "r")
+# os.remove("C:/Users/rajib/OneDrive/Documents/tafe-python/movie-list.txt")
+
+# get a correct file name from the user until the file is found
+# get a letter and a string from the user once the file is found
+# the leter should be a single letter
+# read the file and get the no of occurences of the letter
+# check if the string exists in the file
+# print out the result
+# write the result in a new file
+
+# initiating the variables required to accomplish the task
+fileName = None
+file = None
+letter = None
+letterCount = 0
+
+# promting for the filename until a file can be found
+while not fileName or not file:
+    fileName = input("Enter the name of the file: ")
+    # trying to open the file name if the user provided value is not empty
+    if fileName.strip():
+        try:
+            # opening the file
+            file = open(fileName.strip())
+        # handling file not found exception
+        except FileNotFoundError:
+            print(f"{fileName} does not exist. Please try again.")
+    # asking for the letter & string user wants to search once the file is found
+    if file != None:
+        # promting user to enter a valid letter
+        while not letter:
+            searchLetter = input("Enter a letter to count: ")
+            # checking the validity of user input
+            if searchLetter.strip().isalpha() and len(searchLetter) == 1:
+                letter = searchLetter.strip()
+            else:
+                print(
+                    "Only a single letter of the alphabet is allowed. Please try again.")
+        # resding the file
+        data = file.read()
+        # couting the occurrences of the letter
+        letterCount = data.count(letter)
+        # asking for the string user wants to search
+        userString = input("Enter a string to search for: ")
+        # printing the count of the letter
+        result1 = f'There are {letterCount} occurrences of the letter "{letter}".'
+        result2 = ""
+        print(result1)
+        # searching for the string and printing the result
+        if data.find(userString) != -1:
+            result2 = f'The string "{userString}" exists in the file.'
+            print(result2)
+        else:
+            result2 = f'The string "{userString}" does not exist in the file.'
+            print(result2)
+        with open("result.txt", "a") as f:
+            f.write(result1 + "\n")
+            f.write(result2 + "\n")
